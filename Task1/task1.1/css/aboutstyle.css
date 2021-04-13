@@ -1,0 +1,47 @@
+* {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  
+}
+h1 {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+img {
+  width: 85%;
+  height: auto;
+  margin: 10px;
+}
+
+.container {
+    padding: 20px 15px 20px 15px;
+    margin: 10px;
+  text-align: center;
+  box-shadow: 10px 10px 5px #ccc;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 0; */
+}
+.column {
+  flex: 50%;
+  /* margin: 0px; */
+}
+.container p{
+  font-size:15px;
+  line-height: 1.8;
+  
+}
+@media screen and (max-width: 992px) {
+  .column {
+    flex: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .projects .column .container p {
+    font-size: 10px;
+  }
+}
