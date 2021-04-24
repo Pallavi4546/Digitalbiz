@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="projectstyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Quicksand&display=swap"
+        rel="stylesheet" />
+    <script src="module.js"></script>
+
+</head>
+
+<body onload="getAllItems()">
+
+    <h1><i class="fas fa-tasks"></i class="icon" style="margin:10px"> Project Management</h1>
+
+    <button id="myBtn" onclick="abcd();modelopen()" class="addbutton"><i class="fas fa-plus"></i>Add Project</button>
+    <div class="box">
+        <div id="task-list" class="border">
+
+        </div>
+
+    </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="container">
+                <form id="project">
+                    <label>Project Tittle</label>
+                    <input id="tittle" class='abc' type="text" />
+                    <label>Project Description</label>
+                    <!-- <input id="details" class='abc' type="" />  -->
+                    <br><br>
+                    <textarea  id="details" style="height: 100px; width: 100%;" class='abc'></textarea>
+                    <label for="txtNums">Team Members</label> <br>
+                    <input type="number" name="txtNums" class='abc' id="txtNums" />
+                    <input type="button" name="button" id="button" value="Add Members" onclick="createMany();" />
+                    <div id="divTxt"></div>
+                   
+                    <label>Project Deadline</label>
+                    <input id="deadline" class='abc' type="date" />
+                    <label>Category </label>
+                    <input id="category" placeholder="eg IT , Web development " class='abc' />
+                
+                </form>
+                <button id="create" onclick="add()">Create</button>
+                <button id="save" onclick="update()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        var create = document.getElementById("create")
+        var save = document.getElementById("save")
+        var span = document.getElementsByClassName("close")[0];
+        //  open the modal 
+        function abcd() {
+            modal.style.display = "block";
+            var xyz = document.getElementsByClassName("abc");
+            for (var i = 0; i < xyz.length; i++) {
+      xyz[i].value = null;
+      if (i==2)
+      createMany();
+     
+    }
+        };
+
+        // close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // click anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function createMany(nums) {
+            var nums = document.getElementById('txtNums').value
+            var str = "";
+            for (i = 0; i < nums; i++) {
+                str +=
+                    " <input type='text' placeholder='Name' class='abc' id='name" + i +
+                    "' /> <input type='text' placeholder='Task' class='abc' id='task" + i +
+                    "'/> <input type='date' placeholder='Deadine' class='abc' id='dl" + i + "'/><br/>";
+            }
+            document.getElementById("divTxt").innerHTML = str;
+        }
+
+        function modelopen() {
+            create.style.display = "block"
+            save.style.display = "none"
+        }
+    </script>
+</body>
+
+</html>
